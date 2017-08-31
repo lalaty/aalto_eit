@@ -37,7 +37,10 @@ def fwRule(rule):
 
 
 def snortRule(rule, file= '/etc/snort/rules/local.rules'):
-    subbprocessCommand(['echo', rule, '>>', file])
+    with open(file, "a") as snortRulesFile:
+        snortRulesFile.write(rule)
+
+    #subbprocessCommand(['echo', rule, '>>', file])
     restartSnort()
 
 
@@ -106,7 +109,7 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
                         self.send_header('Access-Control-Allow-Origin', '*')
 
                         self.end_headers()
-                        self.wfile.write(bytes(str('{"result": "ok", "message": "Everything is Ok"}'), "utf-8"))
+                        self.wfile.write(bytes(str('{"result": "ok", "message": "Everything is Ok, and rule is : '+query["rule"]+'"}'), "utf-8"))
                     except Exception as e:
                         print('Calling Snort exception:' + str(e))
                         # receiveSnort(out)
