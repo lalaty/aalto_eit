@@ -25,6 +25,7 @@ def getIp():
     s.connect(("8.8.8.8", 80))
     ip = s.getsockname()[0]
     s.close()
+    print('Server Ip : '+ip)
     return ip
 
 serverPath = os.path.dirname(os.path.realpath(__file__))
