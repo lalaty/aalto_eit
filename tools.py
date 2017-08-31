@@ -65,8 +65,9 @@ def subprocess_call(cmd, verbose=True, errorprint=True):
     return toStr
 
 
-def subbprocessCommand(cmd, verbose=False, errorprint=True):
+def subbprocessCommand(cmd, verbose=True, errorprint=True):
     verbose_print(verbose, "\n[Mo7amed3aly] Running:\n>>> " + " ".join(cmd))
+    print('\n end of command')
 
     popen_params = {"stdout": sp.PIPE,  "stderr": sp.PIPE,  "stdin": DEVNULL}
     proc = sp.Popen(cmd, **popen_params)
