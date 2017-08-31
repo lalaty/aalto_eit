@@ -38,7 +38,7 @@ def fwRule(rule):
 
 def snortRule(rule, file= '/etc/snort/rules/local.rules'):
     with open(file, "a") as snortRulesFile:
-        snortRulesFile.write(rule)
+        snortRulesFile.write(rule + "\n")
 
     #subbprocessCommand(['echo', rule, '>>', file])
     restartSnort()
