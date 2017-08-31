@@ -16,7 +16,7 @@ from urllib.parse import urlparse, parse_qsl, parse_qs
 from tools import subbprocessCommand
 import json
 import os, sys, subprocess
-from run import api
+#from run import api
 import socket
 # from sdn import createBasicIntentP2P
 
